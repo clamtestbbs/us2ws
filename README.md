@@ -14,7 +14,7 @@ $ git clone https://github.com/clamtestbbs/us2ws
 # apt install -y golang upx socat
 ```
 
-### 3. set up the building environment
+### 3. set up the environment for GO
 
 a. set go path
 
@@ -32,29 +32,22 @@ b. "go get" websocket repo in github
 $ go get github.com/gorilla/websocket
 ```
 
-### 4. build the package
+### 4. execute GO script to add an unix socket
 
 ```
-$ ./build.sh
-```
+$ go run main.go -h
 
-### 5. add an unix socket
-
-execute `usock2wsock` to add an unix socket (telnetBYwebsocket.{$ANYNUMBER}.sock
-
-```
-$ ./usock2wsock -h
-Usage of ./usock2wsock:
+Usage of ... :
   -r int
         Assign a random number to distinguish unix domain sockets (default 9487)
   -u string
         Assign the websockets endpoint. Starting with ws:// or wss://
 ```
 
-For sxample:
+For example:
 
 ```
-$ ./usock2wsock -r 9487 -u wss://ws.ptt.cc/bbs &
+$ go run main.go -r 9487 -u wss://ws.ptt.cc/bbs &
 ```
 
 to add `/tmp/telnetBYwebsocket.9487.sock`
