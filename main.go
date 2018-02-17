@@ -73,7 +73,7 @@ func main() {
     }()
     
     var dialer *websocket.Dialer
-    c, _, err := dialer.Dial(*ws_url, http.Header{"Origin": {"app://welly"}})
+    c, _, err := dialer.Dial(*ws_url, http.Header{"Origin": {"https://www.ptt.cc"}})
     if err != nil {
         l.Close()
     	log.Fatal("websocket connect error:", err)
