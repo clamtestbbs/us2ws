@@ -18,11 +18,19 @@ $ git clone https://github.com/clamtestbbs/us2ws
 
 a. set go path
 
+  i. If you are using Linux platform ( Debian , Ubuntu , CentOS , RHEL ...) : 
+
 ```
 $ cd us2ws && export GOPATH=$PWD
 ```
+(use `go env` to check)
 
-(use "go env" to check)
+  ii. If you are using BSD platform ( FreeBSD , OpenBSD , Apple ...) :
+
+```
+$ cd us2ws && setenv GOPATH $PWD
+```
+(use `go env` to check)
 
 * ref: https://github.com/golang/go/wiki/SettingGOPATH
 
@@ -52,7 +60,9 @@ $ go run main.go -r 9487 -u wss://ws.ptt.cc/bbs &
 
 to add `/tmp/telnetBYwebsocket.9487.sock`
 
-### 6. socat to forward unix socket to telnet socket
+## In Linux platform 
+
+### 5a-1. socat to forward unix socket to telnet socket
 
 https://serverfault.com/questions/517906
 
@@ -62,7 +72,7 @@ For example:
 $ socat TCP-LISTEN:12345 UNIX-CONNECT:/tmp/telnetBYwebsocket.9487.sock &
 ```
 
-### 7. connet to telnet socket
+### 5a-2. connet to telnet socket
 
 ```
 $ telnet 0 <forwarded-port>
@@ -72,4 +82,19 @@ For example:
 
 ```
 $ telnet 0 12345
+```
+
+## In BSD platform 
+
+
+### 5b. use telnet to connect to unix socket
+
+```
+$ telnet -8 -u /tmp/telnetBYwebsocket.<NUMBER>.sock
+```
+
+For example:
+
+```
+$ telnet -8 -u /tmp/telnetBYwebsocket.9487.sock
 ```
