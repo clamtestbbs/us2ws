@@ -5,7 +5,7 @@
 ### 1. clone the repository
 
 ```
-git clone https://github.com/clamtestbbs/us2ws
+$ git clone https://github.com/clamtestbbs/us2ws
 ```
 
 ### 2. install the apps for building
@@ -43,7 +43,7 @@ $ ./build.sh
 execute `usock2wsock` to add an unix socket (telnetBYwebsocket.{$ANYNUMBER}.sock
 
 ```
-./usock2wsock -h
+$ ./usock2wsock -h
 Usage of ./usock2wsock:
   -r int
         Assign a random number to distinguish unix domain sockets (default 9487)
@@ -54,7 +54,7 @@ Usage of ./usock2wsock:
 For sxample:
 
 ```
-$ ./usock2wsock -r 9487 -u wss://ws.ptt.cc/bbs
+$ ./usock2wsock -r 9487 -u wss://ws.ptt.cc/bbs &
 ```
 
 to add `/tmp/telnetBYwebsocket.9487.sock`
@@ -66,7 +66,7 @@ https://serverfault.com/questions/517906
 For example:
 
 ```
-$ socat TCP-LISTEN:12345 UNIX-CONNECT:/tmp/telnetBYwebsocket.9487.sock
+$ socat TCP-LISTEN:12345 UNIX-CONNECT:/tmp/telnetBYwebsocket.9487.sock &
 ```
 
 ### 7. connet to telnet socket
