@@ -57,7 +57,7 @@ func main() {
     randN := flag.Int("r", 9487, "Assign a random number to distinguish unix domain sockets")
     flag.Parse()
     
-    l, err := net.Listen("unix", fmt.Sprintf("/tmp/telnetBYwebsocket.%d.sock", *randN))
+    l, err := net.Listen("unix", fmt.Sprintf("tmp/telnetBYwebsocket.%d.sock", *randN))
     if err != nil {
         log.Fatal("listen error:", err)
     }
