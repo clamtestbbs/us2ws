@@ -2,4 +2,5 @@ pkg/
 src/
 usock2wsock
 tmp/
+/*.sh
 !tmp/.gitkeep
